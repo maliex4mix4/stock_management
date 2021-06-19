@@ -1,0 +1,268 @@
+{% load static %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+   $('nav li').one("click",function(){
+     $('nav li').removeClass('nav-active');
+     $(this).addClass('nav-active');
+   })
+})
+</script>
+
+<div class="inner-wrapper">
+<!-- start: sidebar -->
+<aside id="sidebar-left" class="sidebar-left">
+
+    <div class="sidebar-header">
+        <div class="sidebar-title">
+            Navigation
+        </div>
+        <div class="sidebar-toggle d-none d-md-block" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
+            <i class="fas fa-bars" aria-label="Toggle sidebar"></i>
+        </div>
+    </div>
+
+    <div class="nano">
+        <div class="nano-content">
+            <nav id="menu" class="nav-main" role="navigation">
+            
+            {% if request.user.is_admin %}
+            <ul class="nav nav-main">
+                <li class="mb-4">
+                    <a class="nav-link" href="{% url 'administrator:dashboard' %}">
+                        <i class="fas fa-home" aria-hidden="true"></i>
+                        <span>Overview</span>
+                    </a>                        
+                </li>
+                <li class="nav-parent mb-4">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-columns" aria-hidden="true"></i>
+                        <span>Product</span>
+                    </a>
+                    <ul class="nav nav-children">
+                        <li>
+                            <a class="nav-link" href="{% url 'administrator:add_products' %}">
+                                Add Product
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="{% url 'administrator:view_products' %}">
+                                View Product
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                                                    
+                <li class="nav-parent mb-4">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-copy" aria-hidden="true"></i>
+                        <span>Category</span>
+                    </a>
+                    <ul class="nav nav-children">
+                        <li>
+                            <a class="nav-link" href="{% url 'administrator:category' %}">
+                                Add Category
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="{% url 'administrator:view_categories' %}">
+                                View Categories
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                
+                <li class="nav-parent mb-4">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-user" aria-hidden="true"></i>
+                        <span>Users</span>
+                    </a>
+                    <ul class="nav nav-children">
+                        <li>
+                            <a class="nav-link" href="{% url 'administrator:add_user' %}">
+                                Add User
+                            </a>
+                        </li>				                        
+                        <li>
+                            <a class="nav-link" href="{% url 'administrator:view_users' %}">
+                                View Users
+                            </a>
+                        </li>				                            
+                    </ul>
+                </li>
+                <li class="nav-parent mb-4">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-list-alt" aria-hidden="true"></i>
+                        <span>Orders</span>
+                    </a>
+                    <ul class="nav nav-children">
+                        <li>
+                            <a class="nav-link" href="{% url 'administrator:add_order' %}">
+                                Add Order
+                            </a>
+                        </li>				                        
+                        <li>
+                            <a class="nav-link" href="{% url 'administrator:view_orders' %}">
+                                View Orders
+                            </a>
+                        </li>				                            
+                    </ul>
+                </li>
+
+                <li class="mb-4">
+                    <a class="nav-link" href="">
+                        <i class="fas fa-tasks" aria-hidden="true"></i>
+                        <span>Make Sales</span>
+                    </a>                        
+                </li>
+                
+            </ul>
+
+            {% elif request.user.is_attendant %}
+            
+            <ul class="nav nav-main">
+                <li class="mb-4">
+                    <a class="nav-link" href=" " data-toggle="modal" data-target="#exampleModalCenter">
+                        <i class="fas fa-home" aria-hidden="true"></i>
+                        <span>Overview</span>
+                    </a>                        
+                </li>
+                <li class="nav-parent mb-4">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-columns" aria-hidden="true"></i>
+                        <span>Product</span>
+                    </a>
+                    <ul class="nav nav-children">
+                        <li>
+                            <a class="nav-link" href="" data-toggle="modal" data-target="#exampleModalCenter">
+                                Add Product
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="" data-toggle="modal" data-target="#exampleModalCenter">
+                                View Product
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                                                    
+                <li class="nav-parent mb-4">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-copy" aria-hidden="true"></i>
+                        <span>Category</span>
+                    </a>
+                    <ul class="nav nav-children">
+                        <li>
+                            <a class="nav-link" href="" data-toggle="modal" data-target="#exampleModalCenter">
+                                Add Category
+                            </a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="" data-toggle="modal" data-target="#exampleModalCenter">
+                                View Categories
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                
+                <li class="nav-parent mb-4">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-user" aria-hidden="true"></i>
+                        <span>Users</span>
+                    </a>
+                    <ul class="nav nav-children">
+                        <li>
+                            <a class="nav-link" href="" data-toggle="modal" data-target="#exampleModalCenter">
+                                Add User
+                            </a>
+                        </li>				                        
+                        <li>
+                            <a class="nav-link" href="" data-toggle="modal" data-target="#exampleModalCenter">
+                                View Users
+                            </a>
+                        </li>				                            
+                    </ul>
+                </li>
+                <li class="nav-parent mb-4">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-list-alt" aria-hidden="true"></i>
+                        <span>Orders</span>
+                    </a>
+                    <ul class="nav nav-children">
+                        <li>
+                            <a class="nav-link" href=" " data-toggle="modal" data-target="#exampleModalCenter">
+                                Add Order
+                            </a>
+                        </li>				                        
+                        <li>
+                            <a class="nav-link" href="" data-toggle="modal" data-target="#exampleModalCenter">
+                                View Orders
+                            </a>
+                        </li>				                            
+                    </ul>
+                </li>
+
+                <li class="mb-4">
+                    <a class="nav-link" href="{% url 'administrator:sales' %}">
+                        <i class="fas fa-tasks" aria-hidden="true"></i>
+                        <span>Make Sales</span>
+                    </a>                        
+                </li>
+                
+            </ul>
+            
+            
+              
+            {% endif %}
+                
+                
+                
+                
+                
+
+
+            </nav>
+
+        
+
+        <script>
+            // Maintain Scroll Position
+            if (typeof localStorage !== 'undefined') {
+                if (localStorage.getItem('sidebar-left-position') !== null) {
+                    var initialPosition = localStorage.getItem('sidebar-left-position'),
+                        sidebarLeft = document.querySelector('#sidebar-left .nano-content');
+                    
+                    sidebarLeft.scrollTop = initialPosition;
+                }
+            }
+        </script>
+        
+
+    </div>
+
+</aside>
+<!-- end: sidebar -->
+
+
+ 
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle"><b>Admin Authentication Required</b></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          You are not allowed to access this section!!!
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <a href="{% url 'user_login' %}"><button type="button" class="btn btn-primary">Proceed</button></a>
+        </div>
+      </div>
+    </div>
+  </div>

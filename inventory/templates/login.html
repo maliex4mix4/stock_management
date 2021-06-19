@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+
+{% block content %}
+<style>
+    
+    .asteriskField{
+        display: none;
+    }
+
+    label{
+        display: none;
+    }
+
+    </style>
+
+    <div id="login" class="mb-5 mt-5">
+        <div class="container">
+            <div id="login-row" class="row justify-content-center align-items-center">
+                <div id="login-column" class="col-md-6 mt-5">
+                    <div class="loginmodal-container">
+                        <h1 style="color: #774210">LOGIN</h1><br>
+                        {% include "messages.html" %}
+                      <form method="POST" enctype="multipart/form-data" novalidate>
+                        {% csrf_token %}
+                        
+                  
+                            
+                        
+                        {{ form.username|attr:"placeholder:username"|as_crispy_field }}
+                        {{ form.password|attr:"placeholder:password"|as_crispy_field }}
+                        
+
+                        <input type="submit" class="loginmodal-submit btn-outline" value="Login">
+                      </form>
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

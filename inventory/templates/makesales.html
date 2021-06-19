@@ -1,0 +1,28 @@
+{% extends 'dbase.html' %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+{% load humanize %}
+
+{% block content %}
+
+{% include 'header.html' %}
+{% include 'sidebar.html' %}
+
+<header class="page-header">
+    <h2>Make Sales</h2>
+
+    <div class="right-wrapper text-right">
+        <ol class="breadcrumbs">
+            <li>
+                <a href="{% url 'administrator:dashboard' %}">
+                    <i class="fas fa-home"></i>
+                </a>
+            </li>
+            <li><span>Make Sales</span></li>
+        </ol>
+
+        <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fas fa-chevron-left"></i></a>
+    </div>
+</header>
+{% endblock %}
