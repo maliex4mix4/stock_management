@@ -3,26 +3,173 @@
 {% load static %}
 {% load crispy_forms_tags %}
 {% load humanize %}
+{% load widget_tweaks %}
 
+
+
+{% block title %}
+
+Admin | Make Sales
+  
+{% endblock title %}
 {% block content %}
 
 {% include 'header.html' %}
 {% include 'sidebar.html' %}
+    <section role="main" class="content-body">
 
-<header class="page-header">
-    <h2>Make Sales</h2>
+        <header class="page-header">
+            <h2>Make Sales</h2>
 
-    <div class="right-wrapper text-right">
-        <ol class="breadcrumbs">
-            <li>
-                <a href="{% url 'administrator:dashboard' %}">
-                    <i class="fas fa-home"></i>
-                </a>
-            </li>
-            <li><span>Make Sales</span></li>
-        </ol>
+            <div class="right-wrapper text-right" style="background-color: #774210;">
+                <ol class="breadcrumbs">
+                    <li>
+                        <a href="{% url 'administrator:dashboard' %}">
+                            <i class="fas fa-home"></i>
+                        </a>
+                    </li>
+                    <li><span>Make Sales</span></li>
+                </ol>
 
-        <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fas fa-chevron-left"></i></a>
+                <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fas fa-chevron-left"></i></a>
+            </div>
+        </header>
+
+        <!-- start: page -->
+        <section class="card">
+
+          
+            <header class="card-header" style="background-color: #774210;">
+                <div class="card-actions">
+                    <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+                    <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+                </div>
+
+                <h2 class="card-title" style="color: #FFF">Make Sales</h2>
+            </header>
+            <div class="card-body">
+                <div class="row mb-5">
+                    <div class="card-body">
+                    <form method="POST" enctype="multipart/form-data" novalidate>
+                        {% csrf_token %}
+                        <div class="row">
+                                                        
+                            <div class="col-lg-3 form-group">
+                                {{ order.product|attr:"placeholder:Name"|as_crispy_field }}
+                            </div>
+        
+                            <div class="col-lg-2 form-group">
+                                {{ order.quantity|attr:"placeholder:0"|as_crispy_field }}
+                            </div>
+        
+                            <div class="col-lg-3 form-group" onchange="yesnoCheck(this);">
+                                {{ order.unit|as_crispy_field }}
+                            </div>
+        
+                            <div class="col-lg-2 form-group">
+                                <label>Price</label>
+                                <input type="text" placeholder="N0.00" class="form-control">
+                            </div>
+                            
+                            <div class="col-lg-2 form-group">
+                                <label>Total</label>
+                                <input type="text" placeholder="N0.00" class="form-control">
+                            </div>
+                          
+                            
+                            {% comment %}
+                              
+                            <table class="table">
+                                {{ order_item.management_form }}
+    
+                                {% for form in order_item.forms %}
+                                    {% if forloop.first %}
+                                        <thead>
+                                        <tr>
+                                            {% for field in form.visible_fields %}
+                                                <th>{{ field.label|capfirst }}</th>
+                                            {% endfor %}
+                                        </tr>
+                                        </thead>
+                                    {% endif %}
+                                    <tr class="{% cycle row1 row2 %} formset_row">
+                                        {% for field in form.visible_fields %}
+                                            <td>
+                                                {# Include the hidden fields in the form #}
+                                                {% if forloop.first %}
+                                                    {% for hidden in form.hidden_fields %}
+                                                        {{ hidden }}
+                                                    {% endfor %}
+                                                {% endif %}
+                                                {{ field.errors.as_ul }}
+                                                {{ field }}
+                                            </td>
+                                        {% endfor %}
+                                    </tr>
+                                {% endfor %}  
+                            {% endcomment %}
+                                
+
+
+
+                            <div class="col-sm-6">
+                                <div class="mb-3">
+                                    <button type="submit" class="btn btn-primary" style="background-color: #774210; border-color: #774210;">Add New Item <i class="fas fa-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>    
+                    </form>
+                    </div>
+
+                    <select onchange="yesnoCheck(this);">
+                        <option value="">Valitse automerkkisi</option>
+                        <option value="lada">Lada</option>
+                        <option value="mosse">Mosse</option>
+                        <option value="volga">Volga</option>
+                        <option value="vartburg">Vartburg</option>
+                        <option value="other">Muu</option>
+                    </select>
+                    
+                    <div id="ifYes" style="display: none;">
+                        <label for="car">Muu, mikä?</label> <input type="text" id="car" name="car" /><br />
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+        <!-- end: page -->
+    </section>
     </div>
-</header>
+
+</section>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+          <script src="{% static 'jquery.formset.js' %}"></script>
+          <script type="text/javascript">
+              $('.formset_row').formset({
+                  addText: 'Add New Sales',
+                  deleteText: 'Delete Sales',
+                  prefix: 'familymember_set'
+              });
+          </script>
+
+<script>
+    function yesnoCheck(that) {
+            if (that.value == "other") {
+                document.getElementById("ifYes").style.display = "block";
+            } else {
+                document.getElementById("ifYes").style.display = "none";
+            }
+        }
+</script>
+
+    
+
 {% endblock %}
+
+
+{% block other_links %}
+  		<script src="{% static 'js/examples/examples.datatables.editable.js' %}"></script>
+           
+{% endblock other_links %}

@@ -9,7 +9,7 @@
 
 {% block title %}
 
-Admin | view products
+Admin | Manaage Unit
   
 {% endblock title %}
 {% block content %}
@@ -19,7 +19,7 @@ Admin | view products
     <section role="main" class="content-body">
 
         <header class="page-header">
-            <h2>View Products</h2>
+            <h2>Manage Unit</h2>
 
             <div class="right-wrapper text-right" style="background-color: #774210;">
                 <ol class="breadcrumbs">
@@ -28,7 +28,7 @@ Admin | view products
                             <i class="fas fa-home"></i>
                         </a>
                     </li>
-                    <li><span>View Products</span></li>
+                    <li><span>Manage Unit</span></li>
                 </ol>
 
                 <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fas fa-chevron-left"></i></a>
@@ -45,12 +45,12 @@ Admin | view products
                     <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
                 </div>
 
-                <h2 class="card-title" style="color: #FFF">Products</h2>
+                <h2 class="card-title" style="color: #FFF">Manage Unit for {{product.name}}</h2>
             </header>
             <div class="card-body">
                 <div class="row mb-5">
                     <div class="card-body">
-                    <form method="POST" enctype="multipart/form-data" novalidate>
+                    <form method="POST" novalidate>
                         {% csrf_token %}
                         <div class="row">
                             <div class="col-lg-4 form-group">
@@ -58,11 +58,11 @@ Admin | view products
                             </div>
         
                             <div class="col-lg-4 form-group">
-                                {{ form.category|attr:"placeholder:category"|as_crispy_field }}
+                                {{ form.stock|attr:"placeholder:0"|as_crispy_field }}
                             </div>
-                         
+                            
                             <div class="col-lg-4 form-group">
-                                {{ form.quantity|attr:"placeholder:0"|as_crispy_field }}
+                                {{ form.price|attr:"placeholder:N0.00"|as_crispy_field }}
                             </div>
                             
                             
@@ -83,30 +83,27 @@ Admin | view products
                         <tr>
                             <th>S/N</th>
                             <th>Name</th>
-                            <th>Category</th>
                             <th>Stock</th>
-                            <th>Sold</th>
+                            <th>Price</th>
                             <th>Date Added</th>
                             <th>Action(s)</th>
                         </tr>
                     </thead>
                     <tbody>
                         
-                        {% for p in products %}
+                        {% for p in units %}
                         <tr>
                             <td>{{forloop.counter}}</td>
                             <td id='product_name'>{{p.name}}</td>
-                            <td id='product_category_name'>{{p.category.name}}</td>
-                            <td id='product_quantity'>{{p.quantity}}</td>
-                            <td id='product_sold'>{{p.sold}}</td>
+                            <td id='product_quantity'>{{p.stock}}</td>
+                            <td id='product_sold'>{{p.price}}</td>
                             <td>{{p.created_at}}</td>
 
                             <td class="">
                                 <a href="#" class="hidden on-editing save-row"><i class="fas fa-save"></i></a>
                                 <a href="#" class="hidden on-editing cancel-row"><i class="fas fa-times"></i></a>
-                                <a href="{% url 'administrator:update_products' p.id %}"><i class="fas fa-pencil-alt" style="padding-left: 15px;"></i></a>
-                                <a href="{% url 'administrator:delete_products' p.id %}"><i class="far fa-trash-alt" style="color: red !important; padding-left: 15px;"></i></a>
-                                <a href="{% url 'administrator:manageUnit' p.id %}" style="color: blue !important; padding-left: 15px;">Manage Unit</a>
+                                <a href="{% url 'administrator:update_unit' p.id %}"><i class="fas fa-pencil-alt" style="padding-left: 15px;"></i></a>
+                                <a href="{% url 'administrator:delete_unit' p.id %}"><i class="far fa-trash-alt" style="color: red !important; padding-left: 15px;"></i></a>
                             </td>
                         </tr>
 
@@ -211,6 +208,6 @@ Admin | view products
 
 
 {% block other_links %}
-  		<script src="{% static 'js/examples/examples.datatables.editable.js' %}"></script>
+  		<script src="{% static 'js/examples/unit.js' %}"></script>
 
 {% endblock other_links %}

@@ -35,7 +35,7 @@ class MyUser(AbstractUser):
 
 class Category(models.Model):
     name = models.CharField(max_length=500)
-    description = models.TextField()
+    description = models.CharField(max_length=1000)
     slug = models.SlugField(max_length=100, unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -57,19 +57,19 @@ class Category(models.Model):
 
 
 class Product(models.Model):
+    """ 
     ADD_BY = (
         ('Pack', 'Pack'),
         ('Sachet', 'Sachet'),
         ('Sack', 'Sack'),
-    )
+    ) 
+    """
     user = models.ForeignKey(MyUser, on_delete=models.CASCADE)
     name = models.CharField(max_length=500)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    price = models.PositiveIntegerField(default=0.00)
-    quantity = models.PositiveIntegerField(default=0)
-    unit = models.CharField(max_length=50, choices=ADD_BY)
+    quantity = models.PositiveIntegerField()
     sold = models.PositiveIntegerField(default=0)
-    slug = models.SlugField(max_length=100, unique=True)
+    slug = models.SlugField(max_length=100, unique=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -88,62 +88,6 @@ class Product(models.Model):
     def get_absolute_url(self):
         return reverse("Products_detail", kwargs={"pk": self.pk})
 
-
-
-class Order(models.Model):
-    ADD_BY = (
-        ('Pack', 'Pack'),
-        ('Sachet', 'Sachet'),
-        ('Sack', 'Sack'),
-    )
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    quantity = models.PositiveIntegerField(default=0)
-    unit = models.CharField(max_length=50, choices=ADD_BY)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-    
-    class Meta:
-        verbose_name = ("Order")
-        verbose_name_plural = ("Orders")
-
-    def __str__(self):
-        return f"{self.quantity} of {self.product.name} in {self.unit}"
-
-    def get_total_item_price(self):
-        return self.quantity * self.product.price
-
-    def get_absolute_url(self):
-        return reverse("Order_Product_detail", kwargs={"pk": self.pk})
-
-
-class OrderProduct(models.Model):
-    ref_no = models.CharField(max_length=20, blank=True, null=True)
-    orders = models.ManyToManyField(Order)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-    
-
-    class Meta:
-        verbose_name = ("OrderProduct")
-        verbose_name_plural = ("OrderProducts")
-
-    def __str__(self):
-        return self.ref_no
-
-    def get_total(self):
-        total = 0
-        for order_item in self.orders.all():
-            total += order_item.get_total_item_price()
-        return total
-
-    def get_absolute_url(self):
-        return reverse("OrderProduct_detail", kwargs={"pk": self.pk})
-    
-    def save(self, *args, **kwargs):
-        self.ref_no =  self.orders.id
-        super().save(*args, **kwargs)
 
 
 
@@ -196,4 +140,88 @@ class Activity(models.Model):
 
     def get_absolute_url(self):
         return reverse("Activity_detail", kwargs={"pk": self.pk})
+
+class ManageUnit(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
+    stock = models.PositiveIntegerField()
+    price = models.PositiveIntegerField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f'{self.name}'
+
+    class Meta:
+        verbose_name = 'ManageUnit'
+        verbose_name_plural = 'ManageUnits'
+
+
+class Order(models.Model):
+    """ 
+    ADD_BY = (
+        ('Pack', 'Pack'),
+        ('Sachet', 'Sachet'),
+        ('Sack', 'Sack'),
+    ) 
+    """
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField()
+    unit = models.ForeignKey(ManageUnit, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    
+    class Meta:
+        verbose_name = ("Order")
+        verbose_name_plural = ("Orders")
+
+    def __str__(self):
+        return f"{self.quantity} of {self.product.name} in {self.unit.name}"
+
+    def get_total(self):
+        total = self.quantity * self.unit.price
+        return total
+
+    #def get_total_item_price(self):
+    #   return self.quantity * self.product.price
+
+    def get_absolute_url(self):
+        return reverse("Order_Product_detail", kwargs={"pk": self.pk})
+
+    # def save(self, *args, **kwargs):
+    #    price = self.price
+    #    price = self.product.price
+    #    super().save(*args, **kwargs)
+
+
+class OrderProduct(models.Model):
+    ref_no = models.CharField(max_length=20, blank=True, null=True)
+    orders = models.ForeignKey(Order, on_delete=models.CASCADE)
+    paid = models.BooleanField(default=False)
+    hold = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    
+
+    class Meta:
+        verbose_name = ("OrderProduct")
+        verbose_name_plural = ("OrderProducts")
+
+    def __str__(self):
+        return self.ref_no
+    '''
+    def get_total(self):
+        total = 0
+        for order_item in self.orders.all():
+            total += order_item.get_total_item_price()
+        return total
+    '''
+    def get_absolute_url(self):
+        return reverse("OrderProduct_detail", kwargs={"pk": self.pk})
+    
+    def save(self, *args, **kwargs):
+        self.ref_no =  self.orders.id
+        super().save(*args, **kwargs)
 

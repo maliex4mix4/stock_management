@@ -48,6 +48,7 @@ Theme Version: 	2.2.0
 					null,
 					null,
 					null,
+					null,
 					{ "bSortable": false }
 				]
 			});
@@ -149,7 +150,7 @@ Theme Version: 	2.2.0
 				'<a href="#" class="on-default remove-row"><i class="far fa-trash-alt"></i></a>'
 			].join(' ');
 
-			data = this.datatable.row.add([ '', '', '', '', actions ]);
+			data = this.datatable.row.add([ '', '', '', '', '', actions ]);
 			$row = this.datatable.row( data[0] ).nodes().to$();
 
 			$row

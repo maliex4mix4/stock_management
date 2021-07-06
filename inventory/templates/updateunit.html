@@ -9,7 +9,7 @@
 
 {% block title %}
 
-Admin | Update products
+Admin | Update Unit
   
 {% endblock title %}
 {% block content %}
@@ -19,7 +19,7 @@ Admin | Update products
     <section role="main" class="content-body">
 
         <header class="page-header">
-            <h2>Update Products</h2>
+            <h2>Update Unit</h2>
 
             <div class="right-wrapper text-right" style="background-color: #774210;">
                 <ol class="breadcrumbs">
@@ -28,7 +28,7 @@ Admin | Update products
                             <i class="fas fa-home"></i>
                         </a>
                     </li>
-                    <li><span>Update Products</span></li>
+                    <li><span>Update Unit</span></li>
                 </ol>
 
                 <a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fas fa-chevron-left"></i></a>
@@ -45,32 +45,33 @@ Admin | Update products
                     <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
                 </div>
 
-                <h2 class="card-title" style="color: #FFF">Update {{product.name}} Products</h2>
+                <h2 class="card-title" style="color: #FFF">Update {{unit.name|title}} Unit</h2>
             </header>
             <div class="card-body">
                 <div class="row mb-5">
                     <div class="card-body">
-                    <form method="POST" enctype="multipart/form-data" novalidate>
-                        {% csrf_token %}
-                        <div class="row">
-                            <div class="col-lg-4 form-group">
-                                {{ form.name|attr:"placeholder:Name"|as_crispy_field }}
-                            </div>
-        
-                            <div class="col-lg-4 form-group">
-                                {{ form.category|attr:"placeholder:category"|as_crispy_field }}
-                            </div>
-                         
-                            <div class="col-lg-4 form-group">
-                                {{ form.quantity|attr:"placeholder:0"|as_crispy_field }}
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="mb-3">
-                                    <button type="submit" class="btn btn-primary" style="background-color: #774210; border-color: #774210;">Update <i class="fas fa-plus"></i></button>
+                        <form method="POST" enctype="multipart/form-data" novalidate>
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-lg-4 form-group">
+                                    {{ form.name|attr:"placeholder:Name"|as_crispy_field }}
                                 </div>
-                            </div>
-                        </div>    
-                    </form>
+            
+                                <div class="col-lg-4 form-group">
+                                    {{ form.stock|attr:"placeholder:0"|as_crispy_field }}
+                                </div>
+                                
+                                <div class="col-lg-4 form-group">
+                                    {{ form.price|attr:"placeholder:N0.00"|as_crispy_field }}
+                                </div>
+                                
+                                <div class="col-sm-6">
+                                    <div class="mb-3">
+                                        <button type="submit" class="btn btn-primary" style="background-color: #774210; border-color: #774210;">Update <i class="fas fa-plus"></i></button>
+                                    </div>
+                                </div>
+                            </div>    
+                        </form>
                     </div>
                     
                 </div>
@@ -88,6 +89,6 @@ Admin | Update products
 
 
 {% block other_links %}
-  		<script src="{% static 'js/examples/examples.datatables.editable.js' %}"></script>
+  		<script src="{% static 'js/examples/unit.js' %}"></script>
 
 {% endblock other_links %}

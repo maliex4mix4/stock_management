@@ -14,18 +14,18 @@ $(document).ready(function(){
 <!-- start: sidebar -->
 <aside id="sidebar-left" class="sidebar-left">
 
-    <div class="sidebar-header">
-        <div class="sidebar-title">
-            Navigation
+    <div class="sidebar-header" style="background-color: #774210;">
+        <div class="sidebar-title" style="background-color: #774210;">
+            
         </div>
         <div class="sidebar-toggle d-none d-md-block" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
             <i class="fas fa-bars" aria-label="Toggle sidebar"></i>
         </div>
     </div>
 
-    <div class="nano">
+    <div class="nano" style="background-color: #774210;">
         <div class="nano-content">
-            <nav id="menu" class="nav-main" role="navigation">
+            <nav id="menu" class="nav-main" role="navigation" >
             
             {% if request.user.is_admin %}
             <ul class="nav nav-main">
@@ -91,31 +91,33 @@ $(document).ready(function(){
                         </li>				                            
                     </ul>
                 </li>
-                <li class="nav-parent mb-4">
-                    <a class="nav-link" href="#">
+                <li class="mb-4">
+                    <a class="nav-link" href="{% url 'administrator:view_orders' %}">
                         <i class="fas fa-list-alt" aria-hidden="true"></i>
                         <span>Orders</span>
+                    </a>                        
+                </li>
+
+                <li class="nav-parent mb-4">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-tasks" aria-hidden="true"></i>
+                        <span>Sales</span>
                     </a>
                     <ul class="nav nav-children">
                         <li>
-                            <a class="nav-link" href="{% url 'administrator:add_order' %}">
-                                Add Order
+                            <a class="nav-link" href="{% url 'administrator:sales' %}">
+                                Make a sales
                             </a>
                         </li>				                        
                         <li>
-                            <a class="nav-link" href="{% url 'administrator:view_orders' %}">
-                                View Orders
+                            <a class="nav-link" href="">
+                                Sales History
                             </a>
                         </li>				                            
                     </ul>
                 </li>
 
-                <li class="mb-4">
-                    <a class="nav-link" href="">
-                        <i class="fas fa-tasks" aria-hidden="true"></i>
-                        <span>Make Sales</span>
-                    </a>                        
-                </li>
+                
                 
             </ul>
 
@@ -237,6 +239,8 @@ $(document).ready(function(){
                 }
             }
         </script>
+        </div>
+
         
 
     </div>

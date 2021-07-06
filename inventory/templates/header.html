@@ -13,9 +13,9 @@
 								<span class="name">{{ request.user.username }}</span>
 								
 								{% if request.user.is_admin %}
-								<span class="role">Admin</span>
+								<span class="role" style="color: #774210;">Admin</span>
 								{% elif request.user.is_attendant %}
-								<span class="role">Attendant</span>
+								<span class="role" style="color: #774210;">Attendant</span>
 
 
 								{% endif %}

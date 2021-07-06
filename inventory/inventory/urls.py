@@ -26,14 +26,16 @@ urlpatterns = [
     path('administrator/', include(([
         path('dashboard', views.AdminDashboard, name='dashboard'),
 
-        path('updateproduct', views.UpdateProduct, name='update_products'),
+        path('updateproduct/<int:pk>', views.UpdateProduct, name='update_products'),
         path('viewproducts', views.ViewProduct, name='view_products'),
         path('addproduct', views.AddProduct, name='add_products'),
         path('deleteproduct/<int:pk>', views.DeleteProduct, name='delete_products'),
 
-        path('updateuser', views.UpdateUser, name='update_user'),
+        path('updateuser/<int:pk>', views.UpdateUser, name='update_user'),
         path('viewusers', views.ViewUser, name='view_users'),
         path('adduser', views.AddUser, name='add_user'),
+        path('deleteuser/<int:pk>', views.DeleteUser, name='delete_user'),
+
 
         path('updateorder', views.UpdateOrder, name='update_order'),
         path('vieworders', views.ViewOrder, name='view_orders'),
@@ -42,8 +44,14 @@ urlpatterns = [
         path('productcategory', views.ProductCategory, name='category'),
         path('viewcategory', views.ViewProductCategory, name='view_categories'),
         path('deletecategory/<int:pk>', views.DeleteCategory, name='delete_category'),
+        path('updatecategory/<int:pk>', views.UpdateProductCategory, name='update_category'),
+
 
         path('make_sales', views.MakeSales, name='sales'),
+        path('manage_unit/<int:pk>', views.ManageUnits, name='manageUnit'),
+        path('deleteunit/<int:pk>', views.DeleteUnit, name='delete_unit'),
+        path('updateunit/<int:pk>', views.UpdateUnit, name='update_unit'),
+
 
         
 

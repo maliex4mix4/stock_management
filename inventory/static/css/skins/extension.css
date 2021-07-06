@@ -1,68 +1,68 @@
 html.dark .checkbox-primary label:before,
 .checkbox-primary label:before {
-	background: #0088cc;
-	border-color: #0077b3;
+	background: #774210;
+	border-color: #774210;
 }
 
 html.dark .checkbox-text-primary input[type="checkbox"]:checked + label:after,
 .checkbox-text-primary input[type="checkbox"]:checked + label:after {
-	color: #0088cc;
+	color: #774210;
 }
 
 html.dark .radio-primary input[type="radio"]:checked + label:after,
 .radio-primary input[type="radio"]:checked + label:after {
-	background: #0088cc;
-	-webkit-box-shadow: 0px 0px 1px #0088cc;
-	        box-shadow: 0px 0px 1px #0088cc;
+	background: #774210;
+	-webkit-box-shadow: 0px 0px 1px #774210;
+	        box-shadow: 0px 0px 1px #774210;
 }
 
 .switch.switch-primary .ios-switch .on-background {
-	background: #0088cc;
+	background: #774210;
 }
 
 .progress-bar {
-	background-color: #0088cc;
+	background-color: #774210;
 }
 
 .progress .progress-bar-primary {
-	background-color: #0088cc;
+	background-color: #774210;
 }
 
 .slider-primary .ui-slider-range,
 .slider-primary .ui-slider-handle {
-	background: #0088cc;
+	background: #774210;
 }
 
 .slider-gradient.slider-primary .ui-slider-range,
 .slider-gradient.slider-primary .ui-slider-handle {
-	background-image: -webkit-gradient(linear, right top, left top, color-stop(0, #00aaff), color-stop(50%, #0088cc), to(#006699));
-	background-image: linear-gradient(to left, #00aaff 0, #0088cc 50%, #006699 100%);
+	background-image: -webkit-gradient(linear, right top, left top, color-stop(0, #774210), color-stop(50%, #774210), to(#774210));
+	background-image: linear-gradient(to left, #774210 0, #774210 50%, #774210 100%);
 }
 
 .slider-gradient.ui-slider-vertical.slider-primary .ui-slider-range,
 .slider-gradient.ui-slider-vertical.slider-primary .ui-slider-handle {
-	background-image: -webkit-gradient(linear, left top, right top, color-stop(0, #00aaff), color-stop(50%, #0088cc), to(#006699));
-	background-image: linear-gradient(to right, #00aaff 0, #0088cc 50%, #006699 100%);
+	background-image: -webkit-gradient(linear, left top, right top, color-stop(0, #774210), color-stop(50%, #774210), to(#774210));
+	background-image: linear-gradient(to right, #774210 0, #774210 50%, #774210 100%);
 }
 
 .datepicker thead tr:first-child th:hover,
 .datepicker tfoot tr th:hover,
 .datepicker table tr td span:hover {
-	background: #0088cc;
+	background: #774210;
 }
 
 .datepicker .datepicker-switch:hover,
 .datepicker .prev:hover,
 .datepicker .next:hover {
-	background: #0088cc;
+	background: #774210;
 }
 
 .datepicker table tbody tr td.day:hover {
-	background: #0088cc;
+	background: #774210;
 }
 
 .datepicker table tbody tr td.day.active {
-	background: #006699;
+	background: #774210;
 }
 
 html:not(.sidebar-light) .datepicker.datepicker-dark {
@@ -70,19 +70,19 @@ html:not(.sidebar-light) .datepicker.datepicker-dark {
 }
 
 html:not(.sidebar-light) .datepicker.datepicker-dark table tbody tr td.day:hover {
-	background: #0088cc;
+	background: #774210;
 }
 
 html:not(.sidebar-light) .datepicker.datepicker-dark table tbody tr td.day.active {
-	background: #006699;
+	background: #774210;
 }
 
 .datepicker.datepicker-primary table thead tr:first-child {
-	background-color: #0088cc;
+	background-color: #774210;
 }
 
 .datepicker.datepicker-primary table thead tr:first-child th:hover {
-	background-color: #006699;
+	background-color: #774210;
 }
 
 .datepicker.datepicker-primary table thead tr:last-child {
@@ -90,42 +90,42 @@ html:not(.sidebar-light) .datepicker.datepicker-dark table tbody tr td.day.activ
 }
 
 .datepicker.datepicker-primary table thead tr:last-child th:hover {
-	background-color: #0088cc;
+	background-color: #774210;
 }
 
 .select2-container-multi .select2-choices .select2-search-choice {
-	background: #0088cc;
+	background: #774210;
 }
 
 .wizard-steps > li.active .badge {
-	background-color: #0088cc;
+	background-color: #774210;
 }
 
 .wizard-steps > li.active a,
 .wizard-steps > li.active a:hover,
 .wizard-steps > li.active a:focus {
-	border-top-color: #0088cc;
+	border-top-color: #774210;
 }
 
 .wizard-tabs ul > li.active .badge {
-	background-color: #0088cc;
+	background-color: #774210;
 }
 
 html .wizard-progress .steps-progress .progress-indicator,
 html.dark .wizard-progress .steps-progress .progress-indicator {
-	background: #0088cc;
+	background: #774210;
 }
 
 html .wizard-progress .wizard-steps li.completed a span,
 html.dark .wizard-progress .wizard-steps li.completed a span {
-	border-color: #0088cc;
-	background: #0088cc;
+	border-color: #774210;
+	background: #774210;
 }
 
 html .wizard-progress .wizard-steps li.active a span,
 html.dark .wizard-progress .wizard-steps li.active a span {
-	color: #0088cc;
-	border-color: #0088cc;
+	color: #774210;
+	border-color: #774210;
 }
 
 .table > thead > tr > td.primary,
@@ -140,19 +140,19 @@ html.dark .wizard-progress .wizard-steps li.active a span {
 .table > thead > tr.primary > th,
 .table > tbody > tr.primary > th,
 .table > tfoot > tr.primary > th {
-	background-color: #0088cc !important;
+	background-color: #774210 !important;
 }
 
 .dataTables_processing {
-	background-color: #0088cc;
+	background-color: #774210;
 }
 
 .liquid-meter-wrapper .liquid-meter-selector a.active {
-	color: #0088cc;
+	color: #774210;
 }
 
 .multiselect-container > .active > a,
 .multiselect-container > .active > a:hover,
 .multiselect-container > .active > a:focus {
-	background-color: #0088cc;
+	background-color: #774210;
 }

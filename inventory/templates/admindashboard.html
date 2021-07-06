@@ -25,7 +25,7 @@
 				<header class="page-header">
 					<h2>Dashboard</h2>
 				
-					<div class="right-wrapper text-right">
+					<div class="right-wrapper text-right" style="background-color: #774210;">
 						<ol class="breadcrumbs">
 							<li>
 								<a href="{% url 'administrator:dashboard' %}">
@@ -38,187 +38,119 @@
 						<a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fas fa-chevron-left"></i></a>
 					</div>
 				</header>
-					<!-- <header class="page-header">
-						<h2>DASHBOARD</h2>
 					
-						<div class="right-wrapper text-right">
-							<ol class="breadcrumbs">
-								<li>
-									<a href="#">
-										<i class="fas fa-home"></i>
-									</a>
-								</li>
-							</ol>
-					
-							<a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fas fa-chevron-left"></i></a>
-						</div>
-					</header> -->
 
 					<!-- start: page -->
-					
-					<!-- <div class="row mt-5">
-						<div class="col-xl-6 mb-4">
+					<div class="row">
+						<div class="col-lg-12 mb-3">
 							<section class="card">
-								
 								<div class="card-body">
-									<table class="table table-responsive-md table-striped mb-0" id="datatable-default">
-										<thead>
-											<tr>
-												<th style="height: 50px;">POST TITLE</th>
-												<th style="height: 50px;">STATUS</th>
-												<th style="width: 30%; height: 50px; text-align">TIME POSTED</th>
-											</tr>
-										</thead>
-										<tbody>
-											{% for p in post %}
-											<tr>
-												<td>{{p.title}}</td>
-												<td><span class="badge badge-info" style="height: 20px; padding-top: 5px" >{{p.status}}</span></td>
-												<td >
-													<div style="height: 20px;" class="progress progress-sm progress-half-rounded m-0 mt-1 light">
-														<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
-															{{p.created_at|naturaltime}}
-														</div>
-													</div>
-												</td>
-											</tr>
-											{% endfor %}
-
+									<div class="row">
+										<div class="col-xl-12">
+											<div class="chart-data-selector" id="salesSelectorWrapper">
+												<h2>
+													Products:
+													<strong>
+														<select class="form-control" id="salesSelector">
+															<option value="Porto Admin" selected>Paracetamol</option>
+															<option value="Porto Drupal" >Panadol</option>
+															<option value="Porto Wordpress" >Emzor</option>
+														</select>
+													</strong>
+												</h2>
 					
-										</tbody>
-									</table>
+												<div id="salesSelectorItems" class="chart-data-selector-items mt-3">
+													<!-- Flot: Sales Porto Admin -->
+													<div class="chart chart-sm" data-sales-rel="Porto Admin" id="flotDashSales1" class="chart-active" style="height: 300px;"></div>
+													<script>
+					
+														var flotDashSales1Data = [{
+														    data: [
+														        ["Jan", 140],
+														        ["Feb", 1000],
+														        ["Mar", 190],
+														        ["Apr", 140],
+														        ["May", 180],
+														        ["Jun", 320],
+														        ["Jul", 270],
+														        ["Aug", 180],
+																["Sep", 700],
+														        ["Oct", 320],
+														        ["Nov", 270],
+														        ["Dec", 180]
+														    ],
+														    color: "#0088cc"
+														}];
+					
+														// See: js/examples/examples.dashboard.js for more settings.
+					
+													</script>
+					
+													<!-- Flot: Sales Porto Drupal -->
+													<div class="chart chart-sm" data-sales-rel="Porto Drupal" id="flotDashSales2" class="chart-hidden" style="height: 300px;"></div>
+													<script>
+					
+														var flotDashSales2Data = [{
+														    data: [
+														        ["Jan", 240],
+														        ["Feb", 240],
+														        ["Mar", 290],
+														        ["Apr", 540],
+														        ["May", 480],
+														        ["Jun", 220],
+														        ["Jul", 170],
+														        ["Aug", 190]
+														    ],
+														    color: "#2baab1"
+														}];
+					
+														// See: js/examples/examples.dashboard.js for more settings.
+					
+													</script>
+					
+													<!-- Flot: Sales Porto Wordpress -->
+													<div class="chart chart-sm" data-sales-rel="Porto Wordpress" id="flotDashSales3" class="chart-hidden" style="height: 300px;"></div>
+													<script>
+					
+														var flotDashSales3Data = [{
+														    data: [
+														        ["Jan", 840],
+														        ["Feb", 740],
+														        ["Mar", 690],
+														        ["Apr", 940],
+														        ["May", 1180],
+														        ["Jun", 820],
+														        ["Jul", 570],
+														        ["Aug", 780]
+														    ],
+														    color: "#734ba9"
+														}];
+					
+														// See: js/examples/examples.dashboard.js for more settings.
+					
+													</script>
+												</div>
+					
+											</div>
+										</div>
+										<!-- <div class="col-xl-4 text-center">
+											<h2 class="card-title mt-3">Sales Goal</h2>
+											<div class="liquid-meter-wrapper liquid-meter-sm mt-3">
+												<div class="liquid-meter">
+													<meter min="0" max="100" value="35" id="meterSales"></meter>
+												</div>
+												<div class="liquid-meter-selector mt-4 pt-1" id="meterSalesSel">
+													<a href="#" data-val="35" class="active">Monthly Goal</a>
+													<a href="#" data-val="28">Annual Goal</a>
+												</div>
+											</div>
+										</div> -->
+									</div>
 								</div>
 							</section>
 						</div>
-						<div class="col-lg-6">
-							<div class="row mb-3">
-								<div class="col-xl-12">
-									<section class="card card-featured-left card-featured-primary mb-3">
-										<div class="card-body">
-											<div class="widget-summary">
-												<div class="widget-summary-col widget-summary-col-icon">
-													<div class="summary-icon bg-primary">
-														<i class="fas fa-life-ring"></i>
-													</div>
-												</div>
-												<div class="widget-summary-col">
-													<div class="summary">
-														<h4 class="title">TOTAL POSTS</h4>
-														<div class="info">
-															<strong class="amount">{{post_counts}}</strong>
-														</div>
-													</div>
-													<div class="summary-footer">
-														<a class="text-muted text-uppercase" href="#">(view all)</a>
-													</div>
-												</div>
-											</div>
-										</div>
-									</section>
-								</div>
-								<div class="col-xl-12 mt-3">
-									<section class="card card-featured-left card-featured-secondary">
-										<div class="card-body">
-											<div class="widget-summary">
-												<div class="widget-summary-col widget-summary-col-icon">
-													<div class="summary-icon bg-secondary">
-														<i class="fas fa-box"></i>
-													</div>
-												</div>
-												<div class="widget-summary-col">
-													<div class="summary">
-														<h4 class="title">PUBLISHED</h4>
-														<div class="info">
-															<strong class="amount">{{publish_counts}}</strong>
-														</div>
-													</div>
-													<div class="summary-footer">
-														<a class="text-muted text-uppercase" href="#">(view all)</a>
-													</div>
-												</div>
-											</div>
-										</div>
-									</section>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-xl-12 mt-3">
-									<section class="card card-featured-left card-featured-tertiary mb-3">
-										<div class="card-body">
-											<div class="widget-summary">
-												<div class="widget-summary-col widget-summary-col-icon">
-													<div class="summary-icon bg-tertiary">
-														<i class="fas fa-shopping-cart"></i>
-													</div>
-												</div>
-												<div class="widget-summary-col">
-													<div class="summary">
-														<h4 class="title">DRAFT</h4>
-														<div class="info">
-															<strong class="amount">{{draft_counts}}</strong>
-														</div>
-													</div>
-													<div class="summary-footer">
-														<a class="text-muted text-uppercase" href="#">(view all)</a>
-													</div>
-												</div>
-											</div>
-										</div>
-									</section>
-								</div>
-								<div class="col-xl-12 mt-3 mb-3">
-									<section class="card card-featured-left card-featured-quaternary">
-										<div class="card-body">
-											<div class="widget-summary">
-												<div class="widget-summary-col widget-summary-col-icon">
-													<div class="summary-icon bg-quaternary">
-														<i class="fas fa-user"></i>
-													</div>
-												</div>
-												<div class="widget-summary-col">
-													<div class="summary">
-														<h4 class="title">APPROVED</h4>
-														<div class="info">
-															<strong class="amount">{{approval_counts}}</strong>
-														</div>
-													</div>
-													<div class="summary-footer">
-														<a class="text-muted text-uppercase" href="#">(view all)</a>
-													</div>
-												</div>
-											</div>
-										</div>
-									</section>
-								</div>
-								<div class="col-xl-12 mt-3">
-									<section class="card card-featured-left card-featured-secondary mb-3">
-										<div class="card-body">
-											<div class="widget-summary">
-												<div class="widget-summary-col widget-summary-col-icon">
-													<div class="summary-icon bg-secondary">
-														<i class="fas fa-life-ring"></i>
-													</div>
-												</div>
-												<div class="widget-summary-col">
-													<div class="summary">
-														<h4 class="title">AWAITING APPROVAL</h4>
-														<div class="info">
-															<strong class="amount">{{awaitingapproval_counts}}</strong>
-														</div>
-													</div>
-													<div class="summary-footer">
-														<a class="text-muted text-uppercase" href="#">(view all)</a>
-													</div>
-												</div>
-											</div>
-										</div>
-									</section>
-								</div>
-							</div>
-						</div>
-					</div> -->
+					</div>
 					
-				
 				</section>
 			</div>
 
@@ -230,3 +162,9 @@
 
 
 {% endblock  %}
+
+{% block other_links %}
+  <!-- Examples -->
+  <script src="{% static 'js/examples/examples.dashboard.js' %}"></script>
+
+{% endblock other_links %}

@@ -9,6 +9,11 @@ body {
 	width: 100%;
 }
 
+.add-row{
+	color: #fff;
+	background-color: #0090d9;
+}
+
 html {
 	overflow-x: hidden !important;
 	overflow-y: scroll !important;
@@ -1308,14 +1313,14 @@ a:active {
 	right: 0;
 	width: 73px;
 	height: 50px;
-	background-color: #171717;
+	background-color: #2f3139;
 	border-radius: 0 0 0 5px;
 	text-align: center;
 	cursor: pointer;
 }
 
 .sidebar-left .sidebar-header .sidebar-toggle i {
-	color: #C3C3C3;
+	color: #FFF;
 	font-size: 14.4px;
 	font-size: 0.9rem;
 	line-height: 50px;
@@ -1998,6 +2003,8 @@ html.no-overflowscrolling .nano.has-scrollbar > .nano-content::-webkit-scrollbar
 }
 
 html.no-overflowscrolling .nano > .nano-pane {
+	background-color: black !important;
+	color: black;
 	bottom: 0;
 	position: absolute;
 	opacity: .01;
@@ -2100,6 +2107,7 @@ html.no-overflowscrolling.sidebar-light:not(.dark) .inner-menu .nano {
 }
 
 .page-header h2 {
+	border-bottom-color: #2f3139 !important;
 	color: #FFF;
 	border-bottom: 4px solid #CCC;
 	-webkit-box-sizing: content-box;
@@ -2125,7 +2133,7 @@ html.no-overflowscrolling.sidebar-light:not(.dark) .inner-menu .nano {
 }
 
 .page-header .breadcrumbs li {
-	color: #C3C3C3;
+	color: #FFF;
 	display: inline-block;
 	font-weight: 300;
 }
@@ -2154,7 +2162,7 @@ html.no-overflowscrolling.sidebar-light:not(.dark) .inner-menu .nano {
 
 .page-header .breadcrumbs a,
 .page-header .breadcrumbs span {
-	color: #C3C3C3;
+	color: #FFF;
 	display: inline-block;
 	font-size: 13.6px;
 	font-size: 0.85rem;
@@ -2164,7 +2172,7 @@ html.no-overflowscrolling.sidebar-light:not(.dark) .inner-menu .nano {
 
 .page-header .sidebar-right-toggle {
 	cursor: pointer;
-	color: #C3C3C3;
+	color: #FFF;
 	display: inline-block;
 	font-size: 17px;
 	margin: 0 0 0 10px;
@@ -2177,6 +2185,7 @@ html.no-overflowscrolling.sidebar-light:not(.dark) .inner-menu .nano {
 }
 
 .page-header .sidebar-right-toggle i {
+	color: #FFF;
 	line-height: 53px;
 	vertical-align: middle;
 }
@@ -3033,7 +3042,7 @@ html.boxed.no-overflowscrolling.custom-scroll .inner-menu .nano > .nano-content 
 .inner-menu {
 	background: #1D2127;
 	border-right: 1px solid #242830;
-	color: #abb4be;
+	color: #FFF;
 	padding: 0;
 	margin: 0;
 }
@@ -3054,11 +3063,11 @@ html.boxed.no-overflowscrolling.custom-scroll .inner-menu .nano > .nano-content 
 
 .inner-menu a,
 .inner-menu a:hover {
-	color: #abb4be;
+	color: #FFF;
 }
 
 .inner-menu a.menu-item {
-	color: #abb4be;
+	color: #FFF;
 	display: block;
 	margin: 0 -35px 0 -35px;
 	padding: 10px 50px 10px 50px;
@@ -3067,7 +3076,7 @@ html.boxed.no-overflowscrolling.custom-scroll .inner-menu .nano > .nano-content 
 
 .inner-menu a.menu-item:hover {
 	background: #21262d;
-	color: #abb4be;
+	color: #FFF;
 	text-decoration: none;
 }
 
@@ -5340,7 +5349,7 @@ ul.nav-main > li.nav-active > a {
 }
 
 ul.nav-main > li.nav-active > a:hover {
-	color: #abb4be;
+	color: #FFF;
 }
 
 ul.nav-main > li.nav-active > i {
@@ -5357,7 +5366,7 @@ ul.nav-main li {
 
 ul.nav-main li a {
 	display: block;
-	color: #abb4be;
+	color: #FFF;
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	font-size: 12.8px;
@@ -5402,7 +5411,7 @@ ul.nav-main li.nav-parent > a:after {
 	font-family: 'Font Awesome 5 Free';
 	font-weight: 900;
 	content: '\f107';
-	color: #abb4be;
+	color: #FFF;
 	position: absolute;
 	right: 0;
 	top: 0;
@@ -6275,7 +6284,7 @@ html:not(.sidebar-left-collapsed).boxed .call-to-action .call-to-action-btn > sp
 .card-actions .card-action {
 	background-color: transparent;
 	border-radius: 2px;
-	color: #B4B4B4;
+	color: #FFF;
 	font-size: 14px;
 	height: 24px;
 	line-height: 24px;
@@ -6286,7 +6295,7 @@ html:not(.sidebar-left-collapsed).boxed .call-to-action .call-to-action-btn > sp
 .card-actions a:hover,
 .card-actions .card-action:hover {
 	background-color: #eeeeee;
-	color: #B4B4B4;
+	color: #FFF;
 	text-decoration: none;
 }
 
@@ -11305,7 +11314,7 @@ html.header-dark .notifications > li .notification-icon {
 
 html.dark .notifications > li .notification-icon i,
 html.header-dark .notifications > li .notification-icon i {
-	color: #C3C3C3;
+	color: #FFF;
 }
 
 /* Notifications Mobile */
@@ -12427,7 +12436,7 @@ html.dark .select2-container--bootstrap .select2-search--dropdown .select2-searc
 }
 
 .sidebar-widget.widget-tasks ul li a {
-	color: #abb4be;
+	color: #FFF;
 	display: block;
 	margin: 0 -25px 0 -30px;
 	padding: 10px 0 10px 55px;
@@ -13964,7 +13973,7 @@ html.dark .bootstrap-timepicker-widget table td input {
 .inner-toolbar > ul > li > a {
 	display: inline-block;
 	padding: 0;
-	color: #abb4be;
+	color: #FFF;
 }
 
 .inner-toolbar > ul > li > a:hover, .inner-toolbar > ul > li > a:focus {
@@ -14000,7 +14009,7 @@ html.dark .bootstrap-timepicker-widget table td input {
 }
 
 .inner-toolbar .nav-pills a {
-	color: #abb4be;
+	color: #FFF;
 	padding-top: 8px;
 	padding-bottom: 8px;
 }
@@ -14434,19 +14443,19 @@ html.dark .userbox .name,
 html.dark .userbox .custom-caret,
 html.header-dark .userbox .name,
 html.header-dark .userbox .custom-caret {
-	color: #C3C3C3;
+	color: #FFF;
 }
 
 html.dark .userbox.show .dropdown-menu .name,
 html.dark .userbox.show .dropdown-menu .custom-caret,
 html.header-dark .userbox.show .dropdown-menu .name,
 html.header-dark .userbox.show .dropdown-menu .custom-caret {
-	color: #C3C3C3;
+	color: #FFF;
 }
 
 html.dark .userbox.show .dropdown-menu a,
 html.header-dark .userbox.show .dropdown-menu a {
-	color: #C3C3C3;
+	color: #FFF;
 }
 
 html.dark .userbox.show .dropdown-menu a:hover,
@@ -14466,7 +14475,7 @@ html.header-dark .userbox .dropdown-menu .divider {
 
 html.dark .userbox .dropdown-menu a,
 html.header-dark .userbox .dropdown-menu a {
-	color: #C3C3C3;
+	color: #FFF;
 }
 
 /* Widgets */
@@ -14531,7 +14540,7 @@ html.header-dark .userbox .dropdown-menu a {
 	top: 0;
 	cursor: pointer;
 	text-align: center;
-	color: #b4b4b4;
+	color: #FFF;
 	-webkit-transform: rotate(45deg);
 	        transform: rotate(45deg);
 	-webkit-transition-property: -webkit-transform;
@@ -18276,5 +18285,5 @@ html.dark .thumbnail {
 }
 
 html.dark .notification-menu .title {
-	color: #c3c3c3;
+	color: #FFF;
 }
